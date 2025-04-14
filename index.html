@@ -1,32 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASP Protein Structure Prediction Database</title>
-<link rel= "stylesheet" href="styles.css"> 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
+
 <body>
     <main class=" container">
         <h1>CASP Protein Structure Prediction Database</h1>
         <div class=" app-layout">
-        <div class="protein-section">
-        <div class="search-bar">
-           <div class="Search-input-container">
-            <input type="text" id="search-input"
-            placeholder="Search by protein name, method, or ID">
-            <button id="clear-search" class  
-rawr
+            <div class="protein-section">
+                <div class="search-bar">
+                    <div class="Search-input-container">
+                        <input type="text" id="search-input" placeholder="Search by protein name, method, or ID">
+                        <button id="clear-search" class="clear-button hidden">
+                            <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <button id="search-button" class="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" sroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8">
+                            </circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        Search
+                    </button>
+                </div>
+
+                <div id="loading" class="loading-container hidden">
+                    <div class="loading-spinner"></div>
+                </div>
+
+                <!--Pagination-->
+                <div class="pagination">
+                    <button id="prev-page" class="button-outline" disabled>Previous</button>
+                    <span id="page-info">Page 1 of 1</span>
+                    <button id="next-page" class="button button-outline" disabled>Next</button>
+                </div>
+            </div>
+
+            <div class=" form-section">
+                <div class="card">
+                    <h2>Add New Protein Data</h2>
+                    <form id="protein-form">
+                        <div class="form-group">
+                            <label for="name">Protein Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="method">Prediction Method</label>
+                            <select id="method" name="method" required>
+                                <option value="" disabled selected>Select method</option>
+                                <option value="AlphaFold">AlphaFold</option>
+                                <option value="RoseTTAFold">RoseTTAFold</option>
+                                <option value="ESMFold">ESMFold</option>
+                                <option value="trRosetta">trRosetta</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
 
 
 
 
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resdues">Residues</label>
+                                <input type="number" id="residues" name="residues" min="1" required>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="publishedDate">Published Date</label>
+                            <input type="date" id="publishedDate"
+                            name="publishedDate" required>
+                            </div>
 
+                            <div class="form-group">
+                             <label for="description">Description</label>
+                             <textarea id="desription" name="description" rows="3"></textarea></div>   
 
+                             <div class="form-group">
+                                <label for="description">Desription</label>
+                                <textarea id="description" name="desription"
+                                rows="3"></textarea>
+                                </div>
 
-
+                                <div class="form-group">
+                                    <label>Performance Metrics</label>
+                                    <div class="form-row">
+                                        
+ 
 
 
 
@@ -39,4 +113,5 @@ rawr
 
     </main>
 </body>
+
 </html>
